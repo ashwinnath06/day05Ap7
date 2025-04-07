@@ -39,6 +39,15 @@ app.put('/:id',async(req,res)=>{
         res.send(error)
     }
 })
+
+app.get('/:id',async(req,res)=>{
+    try{
+        var data = await empModel.findById(req.params.id);
+        res.send(data)
+    }catch(errror) {
+        res.send(error)
+    }
+})
 app.listen(port,()=>{
     console.log(`Server is up and running in ${port}`)
 });
